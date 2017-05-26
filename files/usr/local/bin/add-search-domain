@@ -1,0 +1,7 @@
+#!/bin/sh
+
+[ -z "${1}" ] && echo "Usage: $0 <domain>" && exit 1;
+
+echo "search ${1}" >> /etc/resolv.conf;
+
+echo "Added search domain for ${1}";
