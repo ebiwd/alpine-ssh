@@ -1,6 +1,6 @@
 # alpine-ssh
 
-Docker image based on alpine[https://hub.docker.com/_/alpine/] for use in CI/CD pipelines.
+Docker image based on [alpine](https://hub.docker.com/_/alpine/) for use in CI/CD pipelines.
 Includes openssh and rsync, and a couple of utility scripts for inserting SSH keys and setting search domain.
 
 ## Utility scripts
