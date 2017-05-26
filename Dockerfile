@@ -1,11 +1,10 @@
-FROM alpine:latest
+FROM alpine:3.6
 
 LABEL maintainer www-dev@ebi.ac.uk
 
-RUN apk add --update \
+RUN apk add --no-cache \
     rsync \
-    openssh \
-  && rm -rf /var/cache/apk/*
+    openssh
 
 COPY files /
 
