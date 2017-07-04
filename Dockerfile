@@ -10,4 +10,4 @@ RUN apk add --no-cache \
 
 COPY files /
 
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]
