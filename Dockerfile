@@ -3,9 +3,9 @@ FROM alpine:3.6
 LABEL maintainer www-dev@ebi.ac.uk
 
 RUN apk add --no-cache \
-	bash \
-	ca-certificates \
-	curl \
+    bash \
+    ca-certificates \
+    curl \
     python \
     py-pip \
     py-setuptools \
