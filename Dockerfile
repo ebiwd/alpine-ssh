@@ -17,4 +17,4 @@ RUN pip --no-cache-dir install \
 
 COPY files /
 
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]
