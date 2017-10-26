@@ -9,4 +9,6 @@ Image also contains utility scripts
 
 `add-ssh-key <user> <key> [<user> <key>]`
 
+`add-aws-key <user> <key> [region] [output]`
+
 `add-search-domain <domain>`
