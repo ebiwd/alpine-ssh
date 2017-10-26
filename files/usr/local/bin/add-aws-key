@@ -1,0 +1,10 @@
+#!/bin/sh
+
+[ -z "${2}" ] && echo "Usage: $0 <user> <key> [region] [output]" && exit 1;
+
+aws configure set aws_access_key_id $1;
+aws configure set aws_secret_access_key $2;
+aws configure set region ${3:-eu-west-1};
+aws configure set output ${4:-text};
+
+echo "Added key for $(yes '*' | head -16 | tr -d '\n')$(echo $1 | tail -c 5)";
