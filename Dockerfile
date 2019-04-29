@@ -6,6 +6,7 @@ RUN apk add --no-cache \
     bash \
     ca-certificates \
     curl \
+    gettext \
     python \
     py-pip \
     py-setuptools \
