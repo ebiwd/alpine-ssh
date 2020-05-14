@@ -12,6 +12,7 @@ RUN apk add --no-cache \
     py-setuptools \
     rsync \
     perl \
+    jq \
     openssh
 
 # Install kubectl & Helm for kubernetes setup
