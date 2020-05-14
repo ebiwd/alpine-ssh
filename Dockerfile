@@ -26,6 +26,10 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
  && chmod +x /usr/local/bin/helm \
  && mkdir -p $HOME/.kube
 
+RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi-dev openssl-dev && \
+    apk add --no-cache --update python3 && \
+    pip3 install --upgrade pip setuptools
+RUN pip3 install pendulum service_identity
 
 RUN pip --no-cache-dir install \
     awscli
