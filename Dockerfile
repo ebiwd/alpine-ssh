@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.13
 
 LABEL maintainer www-dev@ebi.ac.uk
 
