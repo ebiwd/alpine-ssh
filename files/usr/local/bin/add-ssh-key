@@ -18,3 +18,5 @@ do
   shift;
 done;
 
+chmod 644 ~/.ssh/config
+mkdir -pv ~/.ssh/sockets
