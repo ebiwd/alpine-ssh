@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.18
 
 LABEL maintainer www-dev@ebi.ac.uk
 
@@ -7,7 +7,6 @@ RUN apk add --no-cache \
     ca-certificates \
     curl \
     gettext \
-    python \
     py-pip \
     py-setuptools \
     rsync \
@@ -17,19 +16,19 @@ RUN apk add --no-cache \
     openssh
 
 # Install kubectl & Helm for kubernetes setup
-
-RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+ENV VERIFY_CHECKSUM=false
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
  && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl \
- && curl -LO https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz \
- && tar -xvzf helm-v3.8.0-linux-amd64.tar.gz \
- && mv linux-amd64/helm /usr/local/bin/helm \
+ && curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 \
+ && chmod 700 get_helm.sh \
+ && ./get_helm.sh \
  && chmod +x /usr/local/bin/helm \
  && mkdir -p $HOME/.kube
 
 RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi-dev openssl-dev && \
     apk add --no-cache --update python3 && \
     pip3 install --upgrade pip setuptools
-    
+
 RUN pip --no-cache-dir install \
     awscli
 
